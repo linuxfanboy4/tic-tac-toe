@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Tic Tac Toe</h1>
+        <div class="game-mode">
+            <form method="POST" action="/play">
+                <button type="submit" name="game_type" value="AI">Play vs AI</button>
+                <button type="submit" name="game_type" value="friend">Play with Friend</button>
+            </form>
+        </div>
+
+        <div id="game-board" class="{{ game_mode }}">
+            <div class="row">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+            </div>
+            <div class="row">
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+            </div>
+            <div class="row">
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="result" class="result">
+        <button id="reset" class="hidden">Restart</button>
+    </div>
+
+    <a href="/leaderboard" class="leaderboard-link">Leaderboard</a>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+  </html>
